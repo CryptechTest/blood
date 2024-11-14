@@ -6,10 +6,15 @@ minetest.register_on_player_hpchange(function(player, hp_change, reason)
 		return hp_change
 	end
 
-	if reason.type == "drown" or hp_change >= 0 then
+	minetest.chat_send_all("reason: " .. dump(reason))
+
+	if reason.type == "drown" or hp_change <= 0 then
 		return hp_change
 	end
 
+	if reason.from == "mod" and reason.hunger == true then
+		return hp_change
+	end
 
     blood.do_blood_effects(player, hp_change)
 	return hp_change
