@@ -10,7 +10,7 @@ minetest.register_on_player_hpchange(function(player, hp_change, reason)
 		return hp_change
 	end
 
-	if reason.from == "mod" and reason.hunger == true  then
+	if reason.from == "mod" and reason.hunger == true and hp_change <=0  then
 		return hp_change
 	end
 
