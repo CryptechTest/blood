@@ -41,7 +41,7 @@ end
 function blood.do_blood_effects(obj, damage_amount)
 	local blood_texture = {"blood_1.png", "blood_2.png", "blood_3.png"}
 	local blood_amount = 4
-	if obj:is_player() and damage_amount > 2 then
+	if obj:is_player() and damage_amount <= -2 then
 		-- change the player's hud to have blood on it
 		local player_name = obj:get_player_name()
 		local current_time = minetest.get_us_time()
