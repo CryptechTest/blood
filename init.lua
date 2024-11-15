@@ -11,8 +11,6 @@ minetest.register_on_player_hpchange(function(player, hp_change, reason)
 		return hp_change
 	elseif reason.from == "mod" and reason.hunger == true and hp_change >=0  then
 		return hp_change
-	elseif hp_change > -2 then
-		return hp_change
 	end
 
 	blood.do_blood_effects(player, hp_change)
